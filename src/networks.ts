@@ -1,5 +1,6 @@
 import { getTrottle } from './trottle'
 import { createAlchemyWeb3 } from '@alch/alchemy-web3'
+import Web3 from 'web3'
 
 export const networks = {
   Ethereum: {
@@ -37,6 +38,18 @@ export const networks = {
     trottle: getTrottle(4, 1100), // no more than 4 request per 1.1 second
     bentoBoxV1Address: '0x0319000133d3AdA02600f0875d2cf03D442C3367',
     kashPairMasterAddress: '0xB527C5295c4Bc348cBb3a2E96B2494fD292075a7',
+  },
+  Amber: {
+    name: 'Amber',
+    ticker: 'A',
+    coinName: 'BCH',
+    web3: new Web3(`https://testnet.sonar.cash:9545`) as any,
+    web3Trottle: getTrottle(300, 1000), // no more than 300 request per 1 second
+    scanAPIURL: 'https://testnet.sonar.cash',
+    scanAPIKey: undefined,
+    trottle: getTrottle(4, 1100), // no more than 4 request per 1.1 second
+    bentoBoxV1Address: '0xEfbb25ec12EB1aAe98600c5614F9C4BCAff41F5d',
+    kashPairMasterAddress: '0x045e3894e475e14Be14d1c23C1AaF1cB7E275c7d',
   },
 }
 

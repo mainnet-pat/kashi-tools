@@ -11,6 +11,8 @@ function getNetwork(name: string): Network {
       return networks.Polygon
     case 'kovan':
       return networks.Kovan
+    case 'amber':
+      return networks.Amber
     default:
       console.log(`Unknown network: ${name}. Variants are: ether, polygon, kovan`)
       throw new Error()
