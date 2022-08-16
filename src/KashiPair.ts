@@ -139,6 +139,29 @@ export class KashiPair {
     return true
   }
 
+  async liquidate(borrower: string, borrowPart: BigNumber ): Promise<void> {
+    try {
+      const liquidator = this._network.web3.eth.accounts.privateKeyToAccount(process.env.LIQUIDATOR_PK!)
+      const swapper = this._network.sushiSwapSwapperAddress
+      console.log(borrowPart.toString())
+      await this._contractInstance.methods
+        .liquidate(
+          [borrower],
+          [borrowPart.toString()],
+          liquidator.address,
+          swapper,
+          false
+        )
+        .call({
+          from: liquidator.address,
+          gasPrice: 0.2 * 10 ** 9,
+          gasLimit: 700000
+        })
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
   // TODO: calc timeStamp in advance to make it faster ?
   async accruedTotalBorrow(): Promise<Rebase> {
     const [totalBorrow, accrueInfo, blockNumber] = await Promise.all([

@@ -1,6 +1,7 @@
 import 'dotenv/config'
 import { getBorrowers } from './getBorrowers'
 import { getAllKashiPairsBentoV1 } from './getKashiPairsInfo'
+import { liquidate } from './liquidate'
 import { Network, networks } from './networks'
 
 function getNetwork(name: string): Network {
@@ -20,6 +21,7 @@ function getNetwork(name: string): Network {
 }
 
 const network = getNetwork(process.argv[2])
+network.web3.eth.accounts.wallet.add(process.env.LIQUIDATOR_PK!)
 
 switch (process.argv[3]) {
   case 'insolvent':
@@ -27,6 +29,9 @@ switch (process.argv[3]) {
     break
   case 'borrowers':
     getBorrowers(network, process.argv[4] === undefined ? 50 : parseFloat(process.argv[4]))
+    break
+  case 'liquidate':
+    liquidate(network)
     break
   default:
     console.log(`Unknown command: ${process.argv[3]}. Variants are: insolvent, borrowers <min %>`)

@@ -11,6 +11,7 @@ interface InSolventBorrower {
   borrowAmount: number
   borrowCostInCollateral: number
   coverage: number
+  borrowPart: BigNumber
 }
 interface PairData {
   address: string
@@ -157,6 +158,7 @@ async function getBorrowerInfo(
         borrowAmount,
         borrowCostInCollateral,
         coverage: (borrowCostInCollateral / collateralAmount) * 100,
+        borrowPart
       }
     })
   )

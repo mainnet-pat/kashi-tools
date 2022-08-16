@@ -14,6 +14,7 @@ export const networks = {
     trottle: getTrottle(4, 1100), // no more than 4 request per 1.1 second
     bentoBoxV1Address: '0xF5BCE5077908a1b7370B9ae04AdC565EBd643966',
     kashPairMasterAddress: '0x2cBA6Ab6574646Badc84F0544d05059e57a5dc42',
+    sushiSwapSwapperAddress: '',
   },
   Kovan: {
     name: 'Kovan',
@@ -26,6 +27,7 @@ export const networks = {
     trottle: getTrottle(4, 1100), // no more than 4 request per 1.1 second
     bentoBoxV1Address: '0xc381a85ed7C7448Da073b7d6C9d4cBf1Cbf576f0',
     kashPairMasterAddress: '0x2cBA6Ab6574646Badc84F0544d05059e57a5dc42',
+    sushiSwapSwapperAddress: '',
   },
   Polygon: {
     name: 'Polygon',
@@ -38,6 +40,7 @@ export const networks = {
     trottle: getTrottle(4, 1100), // no more than 4 request per 1.1 second
     bentoBoxV1Address: '0x0319000133d3AdA02600f0875d2cf03D442C3367',
     kashPairMasterAddress: '0xB527C5295c4Bc348cBb3a2E96B2494fD292075a7',
+    sushiSwapSwapperAddress: '',
   },
   Amber: {
     name: 'Amber',
@@ -48,8 +51,9 @@ export const networks = {
     scanAPIURL: 'https://testnet.sonar.cash',
     scanAPIKey: undefined,
     trottle: getTrottle(4, 1100), // no more than 4 request per 1.1 second
-    bentoBoxV1Address: '0xEfbb25ec12EB1aAe98600c5614F9C4BCAff41F5d',
-    kashPairMasterAddress: '0x045e3894e475e14Be14d1c23C1AaF1cB7E275c7d',
+    bentoBoxV1Address: '0xCD11C4D7fD410Fa02ce4561e122101F3E6eeC3C0',
+    kashPairMasterAddress: '0x8FD5b87baCbFDF4fe71725eAf1679f98a9758e21',
+    sushiSwapSwapperAddress: '0x9125B58b4D4edf9e7A8C10A88d5Ac5A74B56B88A',
   },
 }
 
